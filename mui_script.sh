@@ -27,26 +27,36 @@ git push $1 $2
 
 touch ~/diff.txt
 chmod 755  ~/diff.txt
-git fetch first
-git diff HEAD...origin/master >> ~/diff.txt 
+git fetch first master
+git diff --name-only HEAD~0 HEAD~1 >> ~/diff.txt 
 	if ! -s ~/diff.txt   ;then
 pwd
  echo "Degisiklik bulunan dosyalar:"
     git diff HEAD~~1 --name-only
  echo "first repositorydeki deigiklikler aliniyor"
-#   repoSync first master
-# echo "second repositorydeki degisiklikler aliniyor"
-   repoSync second master
-# echo "first repo sync ediliyor"
-   pushRepo first master
-# echo "second repo sync ediliyor"
-   pushRepo second master
-# echo "synchronization tamamlandi"
-#
-else
+   repoSync first master
+ echo "first repodaki degisiklikler alindi"
+   else
    echo "there is no changed files"
 
 fi
+
+cat/dev/null>diff.txt
+
+git fetch second master
+git diff --name-only HEAD~0 HEAD~1 >> ~/diff.txt
+	if ! -s ~/diff.txt; then
+echo "Degisiklik bulunan dosyalar:"
+    git diff HEAD~~1 --name-only
+ echo "second repositorydeki deigiklikler aliniyor"
+   repoSync second master
+ echo "second repodaki degisiklikler alindi"
+   else
+   echo "there is no changed files"
+
+fi
+
+
 
 
 
