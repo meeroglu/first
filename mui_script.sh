@@ -41,7 +41,7 @@ pwd
 
 fi
 
-cat/dev/null>diff.txt
+
 
 git fetch second master
 git diff --name-only HEAD~0 HEAD~1 >> ~/diff.txt
