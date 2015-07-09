@@ -29,7 +29,7 @@ touch ~/diff.txt
 chmod 755  ~/diff.txt
 git fetch first master
 git diff --name-only HEAD~0 HEAD~1 >> ~/diff.txt 
-	if ! -s ~/diff.txt   ;then
+	if  -s ~/diff.txt   ;then
 pwd
  echo "Degisiklik bulunan dosyalar:"
     git diff HEAD~~1 --name-only
